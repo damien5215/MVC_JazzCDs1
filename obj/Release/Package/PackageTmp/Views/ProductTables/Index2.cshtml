@@ -1,0 +1,125 @@
+﻿@model IEnumerable<JazzCPO5.Models.ProductTable>
+
+@{
+    ViewBag.Title = "Index2";
+}
+
+<style>
+
+    img 
+    {
+        width:50px;
+        height:50px;
+    }
+
+    a.classname
+    {
+        /*background: url(../Images/image.gif) no-repeat top left;*/
+
+        background-color: black;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+        opacity: 0.7;
+
+   /*   display: block;
+        width: 150px;
+        height: 150px;
+        text-indent: -9999px;  hides the link text */
+    }
+
+    a.classname:hover {                 /* Invert colours of button */
+        /*background-color: white; 
+        color: black;
+        opacity: 0.7;*/
+
+        opacity: 1;
+        color: white;
+        }
+
+</style>
+
+@*<h2>PRODUCTS</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+<div class="row">
+    <div class="col-sm-6">
+
+        <h2><span>PRODUCTS</span></h2>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>*@
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Image)*@
+                        <img src="@item.Image">
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })*@
+                        @Html.ActionLink("ADD", "ADD", new { id = item.ProductID }, new { @style = "color:white;" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        @*@Html.ActionLink("SelectCustomer", "SelectCustomer", "ProductTables")*@
+        @*@Html.ActionLink("SelectCustomer", "SelectCustomer", "ProductTables", null, new { @class="classname" })*@
+
+        <div style="text-align:center";>
+            @Html.ActionLink("SelectCustomer", "SelectCustomer", "ProductTables", null, new { @class = "classname" })
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <h2><span>CART</span></h2>
+        @{Html.RenderAction("IndexCart");}
+    </div>
+    
+    @*@Html.ActionLink("SelectCustomer", "SelectCustomer", "ProductTables")*@
+
+        @* Html.ActionLink("Button Name", "Index", null, new { @class="classname" })
+
+        a.classname
+        {
+            background: url(../Images/image.gif) no-repeat top left;
+             display: block;
+             width: 150px;
+             height: 150px;
+             text-indent: -9999px; /* hides the link text */
+        } *@
+
+</div>

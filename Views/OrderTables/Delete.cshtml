@@ -1,0 +1,64 @@
+﻿@model JazzCPO5.Models.OrderTable
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2><span>Delete</span></h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OrderTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerTable.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerTable.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductTable.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductTable.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" id="btnChange" /> 
+            @*@Html.ActionLink("Back to List", "Index")*@
+        </div>
+    }
+</div>

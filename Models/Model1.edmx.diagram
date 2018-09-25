@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6fab29de188f4026a0d4a5681fa08539" Name="Diagram1">
+        <EntityTypeShape EntityType="JazzCP05Model.CartTable" Width="1.5" PointX="8.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JazzCP05Model.CustomerTable" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JazzCP05Model.OrderTable" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="JazzCP05Model.ProductTable" Width="1.5" PointX="5.625" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="JazzCP05Model.FK_OrderTable_CustomerTable" ManuallyRouted="false" />
+        <AssociationConnector Association="JazzCP05Model.FK_OrderTable_ProductTable" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<JazzCPO5.Models.ProductTable>
+
+@{
+    ViewBag.Title = "SelectCustomer";
+}
+
+<style>
+        a.classname
+    {
+        /*background: url(../Images/image.gif) no-repeat top left;*/
+
+        background-color: black;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+        opacity: 0.7;
+
+   /*   display: block;
+        width: 150px;
+        height: 150px;
+        text-indent: -9999px;  hides the link text */
+    }
+
+    a.classname:hover {                 /* Invert colours of button */
+        /*background-color: white; 
+        color: black;
+        opacity: 0.7;*/
+
+        opacity: 1;
+        color: white;
+        }
+
+</style>
+
+
+<h2><span>CUSTOMER</span></h2>
+
+<p>
+    
+</p>
+
+<div class="row">
+    <div class="col-sm-6">
+
+@using (Html.BeginForm("Index"))
+{
+    <p>
+        @*@Html.DropDownList("customers", (IEnumerable<SelectListItem>)ViewBag.customers, "Select Customer")*@
+        @*@Html.DropDownList("customers", (IEnumerable<SelectListItem>)ViewBag.customers, new { @class = "cssClass" })*@
+        @Html.DropDownList("customers", (IEnumerable<SelectListItem>)ViewBag.customers, "Select Customer", new { @onchange = "this.form.submit();" })
+
+        @ViewBag.cusName
+    </p>
+
+}
+@Html.ActionLink("Place Order", "PlaceOrder", "OrderTables", null, new { @class = "classname" })
+
+    </div>
+    <div class="col-sm-6">
+        @{Html.RenderAction("IndexCart");}
+    </div>
+    
+
+</div>

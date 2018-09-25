@@ -1,0 +1,55 @@
+﻿@model IEnumerable<JazzCPO5.Models.CustomerTable>
+
+@{
+    ViewBag.Title = "IndexCus";
+}
+
+
+@*<link href="StyleSheet1.css" rel="stylesheet" />*@
+
+<div class="row">
+    <div class="col-sm-6">
+
+        <h2><span>CUSTOMERS</span></h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "classname" })
+        </p>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }, new { @style = "color:white;" }) |
+                        @*@Html.ActionLink("Details", "Details", new { id = item.CustomerID }) |*@
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID }, new { @style = "color:white;" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+    <div class="col-sm-6">
+        <h2><span>Products</span></h2>
+        @{Html.RenderAction("IndexProducts");}
+    </div>
+
+</div>
